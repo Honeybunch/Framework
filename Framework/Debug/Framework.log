@@ -1,0 +1,40 @@
+﻿Build started 1/13/2014 5:21:51 PM.
+     1>Project "D:\Projects\CPP\Pong\Framework\Framework.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\Projects\CPP\Pong\\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D FRAMEWORK_EXPORTS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Sprite.cpp
+         Sprite.cpp
+     1>d:\projects\cpp\pong\framework\sprite.cpp(44): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>d:\projects\cpp\pong\framework\sprite.cpp(45): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>d:\projects\cpp\pong\framework\sprite.cpp(78): warning C4244: 'argument' : conversion from 'float' to 'GLsizei', possible loss of data
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"D:\Projects\CPP\Pong\Debug\Framework.lib" /NOLOGO Debug\Color.obj
+         Debug\Ellip.obj
+         Debug\Text.obj
+         Debug\Game.obj
+         Debug\GameObject.obj
+         Debug\MoveableSprite.obj
+         Debug\Quad.obj
+         Debug\Sprite.obj
+         Debug\Vector2.obj
+         Framework.vcxproj -> D:\Projects\CPP\Pong\Debug\Framework.lib
+       PostBuildEvent:
+         xcopy "D:\Projects\CPP\Pong\Debug\Framework.lib" "D:\Projects\CPP\Pong\lib" /Y
+         xcopy "D:\Projects\CPP\Pong\Framework\*.h" "D:\Projects\CPP\Pong\include\Framework\" /Y
+         :VCEnd
+         D:\Projects\CPP\Pong\Debug\Framework.lib
+         1 File(s) copied
+         D:\Projects\CPP\Pong\Framework\Color.h
+         D:\Projects\CPP\Pong\Framework\Ellip.h
+         D:\Projects\CPP\Pong\Framework\Game.h
+         D:\Projects\CPP\Pong\Framework\GameObject.h
+         D:\Projects\CPP\Pong\Framework\MoveableSprite.h
+         D:\Projects\CPP\Pong\Framework\Quad.h
+         D:\Projects\CPP\Pong\Framework\Sprite.h
+         D:\Projects\CPP\Pong\Framework\Text.h
+         D:\Projects\CPP\Pong\Framework\Vector2.h
+         9 File(s) copied
+     1>Done Building Project "D:\Projects\CPP\Pong\Framework\Framework.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.75

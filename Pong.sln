@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pong", "Pong\Pong.vcxproj", "{7687EAB5-DED0-432C-861F-6FE5B5CFEB4F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Framework", "Framework\Framework.vcxproj", "{2E07B6A7-6EF6-46C8-BC0F-07BAB708A0A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7687EAB5-DED0-432C-861F-6FE5B5CFEB4F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7687EAB5-DED0-432C-861F-6FE5B5CFEB4F}.Debug|Win32.Build.0 = Debug|Win32
+		{7687EAB5-DED0-432C-861F-6FE5B5CFEB4F}.Release|Win32.ActiveCfg = Release|Win32
+		{7687EAB5-DED0-432C-861F-6FE5B5CFEB4F}.Release|Win32.Build.0 = Release|Win32
+		{2E07B6A7-6EF6-46C8-BC0F-07BAB708A0A4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2E07B6A7-6EF6-46C8-BC0F-07BAB708A0A4}.Debug|Win32.Build.0 = Debug|Win32
+		{2E07B6A7-6EF6-46C8-BC0F-07BAB708A0A4}.Release|Win32.ActiveCfg = Release|Win32
+		{2E07B6A7-6EF6-46C8-BC0F-07BAB708A0A4}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
