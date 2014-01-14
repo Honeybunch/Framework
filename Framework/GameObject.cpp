@@ -7,6 +7,27 @@ GameObject::GameObject(Vector2* pos)
 	acceleration = new Vector2(0, 0);
 }
 
+//For modifying the transformation matrix
+
+void GameObject::translate(Vector2* location)
+{
+	transformation.m[0][3] = location->x;
+	transformation.m[1][3] = location->y;
+}
+
+void GameObject::rotate(float angle)
+{
+	rotation.m[0][0] = cosf(angle); rotation.m[0][1] = -sinf(angle);
+	rotation.m[1][0] = sinf(angle); rotation.m[1][1] = cosf(angle);
+}
+
+void GameObject::scale(float xScale, float yScale, float zScale)
+{
+	scaling.m[0][0] = xScale;
+	scaling.m[1][1] = yScale;
+	scaling.m[2][2] = zScale;
+}
+
 //Almost every GameObject will need to load its own shaders
 GLuint GameObject::LoadShader(const char* vertexPath, const char* fragmentPath)
 {

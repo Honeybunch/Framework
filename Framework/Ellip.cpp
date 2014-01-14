@@ -1,6 +1,4 @@
 #include "Ellip.h"
-#include <cmath>
-
 
 Ellip::Ellip(Vector2* pos, float w, float h) : GameObject(pos)
 {

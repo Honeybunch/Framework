@@ -6,6 +6,7 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 #include <stdio.h>
 
 #include <GL\glew.h>
@@ -31,6 +32,10 @@ public:
 
 	GLuint LoadShader(const char* vertexPath, const char* fragmentPath);
 
+	void translate(Vector2* location);
+	void rotate(float angle);
+	void scale(float xScale, float yScale, float zScale);
+
 	virtual void update();
 	virtual void draw();
 
@@ -41,13 +46,17 @@ protected:
 	Vector2* velocity;
 	Vector2* acceleration;
 
-	Matrix4f transform;
+	Matrix4f scaling;
+	Matrix4f rotation;
+	Matrix4f transformation;
 
 	//For OpenGL / GLSL
 	GLuint program;
 
 	//GLSL locations
-	GLuint gTransformLocation;
+	GLuint gScalingLocation;
+	GLuint gRotationLocation;
+	GLuint gTransformationLocation;
 
 	GLuint vboID[1]; //The IDs for the vertex buffer objects
 	GLuint vaoID; //The ID for the vertex array object

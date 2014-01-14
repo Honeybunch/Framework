@@ -114,11 +114,24 @@ void Sprite::initVerticies()
 	verticies[10] = 1 + (glHeight / 2);
 	verticies[11] = 0;
 	
-	//Transform matrix
-	transform.m[0][0] = 1.0f; transform.m[0][1] = 0.0f; transform.m[0][2] = 0.0f; transform.m[0][3] = position->x / Game::SCREEN_WIDTH;
-	transform.m[1][0] = 0.0f; transform.m[1][1] = 1.0f; transform.m[1][2] = 0.0f; transform.m[1][3] = position->y / -Game::SCREEN_HEIGHT;
-	transform.m[2][0] = 0.0f; transform.m[2][1] = 0.0f; transform.m[2][2] = 1.0f; transform.m[2][3] = 0.0f;
-	transform.m[3][0] = 0.0f; transform.m[3][1] = 0.0f; transform.m[3][2] = 0.0f; transform.m[3][3] = 1.0f;
+	//Scaling Matrix
+	scaling.m[0][0] = 1.0f; scaling.m[0][1] = 0.0f; scaling.m[0][2] = 0.0f; scaling.m[0][3] = 0.0f;
+	scaling.m[1][0] = 0.0f; scaling.m[1][1] = 1.0f; scaling.m[1][2] = 0.0f; scaling.m[1][3] = 0.0f;
+	scaling.m[2][0] = 0.0f; scaling.m[2][1] = 0.0f; scaling.m[2][2] = 1.0f; scaling.m[2][3] = 0.0f;
+	scaling.m[3][0] = 0.0f; scaling.m[3][1] = 0.0f; scaling.m[3][2] = 0.0f; scaling.m[3][3] = 1.0f;
+
+	//Rotation Matrix
+	rotation.m[0][0] = 1.0f; rotation.m[0][1] = 0.0f; rotation.m[0][2] = 0.0f; rotation.m[0][3] = 0.0f;
+	rotation.m[1][0] = 0.0f; rotation.m[1][1] = 1.0f; rotation.m[1][2] = 0.0f; rotation.m[1][3] = 0.0f;
+	rotation.m[2][0] = 0.0f; rotation.m[2][1] = 0.0f; rotation.m[2][2] = 1.0f; rotation.m[2][3] = 0.0f;
+	rotation.m[3][0] = 0.0f; rotation.m[3][1] = 0.0f; rotation.m[3][2] = 0.0f; rotation.m[3][3] = 1.0f;
+
+	//Transformation matrix
+	transformation.m[0][0] = 1.0f; transformation.m[0][1] = 0.0f; transformation.m[0][2] = 0.0f; transformation.m[0][3] = position->x / Game::SCREEN_WIDTH;
+	transformation.m[1][0] = 0.0f; transformation.m[1][1] = 1.0f; transformation.m[1][2] = 0.0f; transformation.m[1][3] = position->y / -Game::SCREEN_HEIGHT;
+	transformation.m[2][0] = 0.0f; transformation.m[2][1] = 0.0f; transformation.m[2][2] = 1.0f; transformation.m[2][3] = 0.0f;
+	transformation.m[3][0] = 0.0f; transformation.m[3][1] = 0.0f; transformation.m[3][2] = 0.0f; transformation.m[3][3] = 1.0f;
+
 
 	//Generate the VAO
 	glGenVertexArrays(1, &vaoID);
@@ -141,10 +154,14 @@ void Sprite::initVerticies()
 	glUseProgram(program);
 
 	//Get uniform variables
-	gTransformLocation = glGetUniformLocation(program, "transform");
+	gScalingLocation = glGetUniformLocation(program, "scaling");
+	gRotationLocation = glGetUniformLocation(program, "rotation");
+	gTransformationLocation = glGetUniformLocation(program, "transformation");
 
 	//Assign uniform variables
-	glUniformMatrix4fv(gTransformLocation, 1, GL_TRUE, &transform.m[0][0]);
+	glUniformMatrix4fv(gScalingLocation, 1, GL_TRUE, &scaling.m[0][0]);
+	glUniformMatrix4fv(gRotationLocation, 1, GL_TRUE, &rotation.m[0][0]);
+	glUniformMatrix4fv(gTransformationLocation, 1, GL_TRUE, &transformation.m[0][0]);
 
 	//Don't need to use this program anymore
 	glUseProgram(0);
@@ -176,6 +193,15 @@ void Sprite::draw(float interpolation)
 	//Use Shaders
 	glUseProgram(program);
 	
+	//Modify transformation matrix
+	scale(2.0f, 2.0f, 2.0f);
+	rotate(3.14f);
+	translate(new Vector2(1, -1));
+
+	glUniformMatrix4fv(gScalingLocation, 1, GL_TRUE, &scaling.m[0][0]);
+	glUniformMatrix4fv(gRotationLocation, 1, GL_TRUE, &rotation.m[0][0]);
+	glUniformMatrix4fv(gTransformationLocation, 1, GL_TRUE, &transformation.m[0][0]);
+
 	//Render
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
