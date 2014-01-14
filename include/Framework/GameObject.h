@@ -17,6 +17,12 @@
 #include "Vector2.h"
 #include "Color.h"
 
+//Structs we may need for game objects
+struct Matrix4f
+{
+	float m[4][4];
+};
+
 class GameObject
 {
 public:
@@ -35,16 +41,15 @@ protected:
 	Vector2* velocity;
 	Vector2* acceleration;
 
+	Matrix4f transform;
+
 	//For OpenGL / GLSL
 	GLuint program;
 
 	//GLSL locations
-	GLuint gPosLocation;
-	GLuint gVelLocation;
-	GLuint gAccLocation;
-	GLuint gInterpLocation;
+	GLuint gTransformLocation;
 
-	GLuint vboID[2]; //The IDs for the vertex buffer objects
+	GLuint vboID[1]; //The IDs for the vertex buffer objects
 	GLuint vaoID; //The ID for the vertex array object
 };
 
