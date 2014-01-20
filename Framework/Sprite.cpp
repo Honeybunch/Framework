@@ -150,7 +150,7 @@ void Sprite::initVerticies()
 	glBindVertexArray(0);
 
 	//Load shaders
-	program = LoadShader("res/shaders/QuadVertex.glsl", "res/shaders/QuadFragment.glsl");
+	program = LoadShader("res/shaders/Vertex.glsl", "res/shaders/TexFragment.glsl");
 	glUseProgram(program);
 
 	//Get uniform variables
@@ -177,9 +177,6 @@ void Sprite::update()
 
 void Sprite::draw(float interpolation)
 {
-	//Translate by the velocity
-	//glTranslatef(position->x + (velocity->x * interpolation), position->y + (velocity->y * interpolation), 0.0f);
-
 	//Enable things we need
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -193,8 +190,8 @@ void Sprite::draw(float interpolation)
 	//Use Shaders
 	glUseProgram(program);
 	
-	//Modify transformation matrix
-	scale(2.0f, 2.0f, 2.0f);
+	//Modify transformation matrices
+	scale(0.5f, 0.5f, 0.5f);
 	rotate(3.14f);
 	translate(new Vector2(1, -1));
 

@@ -30,8 +30,8 @@ bool Pong::loadMedia()
 	//Create the ball
 
 	//radius of 5 should do it
-	float w = 10;
-	float h = 10;
+	float w = 20;
+	float h = 20;
 
 	//Get the position
 	Vector2* pos = new Vector2((SCREEN_WIDTH/2) - (w/2), (SCREEN_HEIGHT/2) - (h/2));
@@ -71,13 +71,10 @@ void Pong::render(float interpolation)
 	//Clear
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	
-	
 	//Render things
 	ball->draw(interpolation);
 
-	kanoonoo->draw(interpolation);
-
+	//kanoonoo->draw(interpolation);
 
 	//Count and display FPS
 	frames++;

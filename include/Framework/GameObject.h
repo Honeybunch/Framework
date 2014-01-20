@@ -42,9 +42,15 @@ public:
 protected:
 	float width, height;
 
+	//The position, velocity and acceleration in pixels
 	Vector2* position;
 	Vector2* velocity;
 	Vector2* acceleration;
+
+	//The position, velocity and acceleration in GL units
+	Vector2* glPosition;
+	Vector2* glVelocity;
+	Vector2* glAcceleration;
 
 	Matrix4f scaling;
 	Matrix4f rotation;

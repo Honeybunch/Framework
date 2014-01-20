@@ -5,6 +5,10 @@ GameObject::GameObject(Vector2* pos)
 	position = pos;
 	velocity = new Vector2(0, 0);
 	acceleration = new Vector2(0, 0);
+
+	glPosition = new Vector2(0, 0);
+	glVelocity = new Vector2(0, 0);
+	glAcceleration = new Vector2(0, 0);
 }
 
 //For modifying the transformation matrix
@@ -123,5 +127,18 @@ GameObject::~GameObject(void)
 	delete position;
 }
 
+//Use this update function to make sure that the glunit position, etc are correct
+void GameObject::update()
+{
+	glPosition->x = position->x / (Game::SCREEN_WIDTH / 2);
+	glPosition->y = -position->y / (Game::SCREEN_HEIGHT / 2);
+
+	glVelocity->x = velocity->x / (Game::SCREEN_HEIGHT / 2);
+	glVelocity->y = -velocity->y / (Game::SCREEN_HEIGHT / 2);
+
+	glAcceleration->x = acceleration->x / (Game::SCREEN_HEIGHT / 2);
+	glAcceleration->y = -acceleration->y / (Game::SCREEN_HEIGHT / 2);
+}
+
+//We have no standard draw procedures yet
 void GameObject::draw(){}
-void GameObject::update(){}

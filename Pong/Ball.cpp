@@ -49,6 +49,8 @@ void Ball::update(int screenWidth, int screenHeight)
 
 	//Add velocity to position every frame;
 	position->add(velocity); //This will do nothing more than keep the inner coordinates up to date; OpenGL will draw slightly differently
+
+	GameObject::update();
 }
 
 Ball::~Ball()

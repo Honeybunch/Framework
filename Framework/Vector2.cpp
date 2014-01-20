@@ -19,6 +19,12 @@ void Vector2::mult(float scalar)
 	y *= scalar;
 }
 
+void Vector2::div(float scalar)
+{
+	x /= scalar;
+	y /= scalar;
+}
+
 Vector2::~Vector2(void)
 {
 }

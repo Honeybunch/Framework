@@ -1,14 +1,3 @@
-d:\projects\cpp\pong\framework\debug\vc120.pdb
-d:\projects\cpp\pong\framework\debug\vc120.idb
-d:\projects\cpp\pong\framework\debug\color.obj
-d:\projects\cpp\pong\framework\debug\ellip.obj
-d:\projects\cpp\pong\framework\debug\text.obj
-d:\projects\cpp\pong\framework\debug\game.obj
-d:\projects\cpp\pong\framework\debug\gameobject.obj
-d:\projects\cpp\pong\framework\debug\moveablesprite.obj
-d:\projects\cpp\pong\framework\debug\quad.obj
-d:\projects\cpp\pong\framework\debug\sprite.obj
-d:\projects\cpp\pong\framework\debug\vector2.obj
 d:\repositories\git\framework\framework\debug\vc120.pdb
 d:\repositories\git\framework\framework\debug\vc120.idb
 d:\repositories\git\framework\framework\debug\color.obj
@@ -16,11 +5,9 @@ d:\repositories\git\framework\framework\debug\ellip.obj
 d:\repositories\git\framework\framework\debug\text.obj
 d:\repositories\git\framework\framework\debug\game.obj
 d:\repositories\git\framework\framework\debug\gameobject.obj
-d:\repositories\git\framework\framework\debug\moveablesprite.obj
 d:\repositories\git\framework\framework\debug\quad.obj
 d:\repositories\git\framework\framework\debug\sprite.obj
 d:\repositories\git\framework\framework\debug\vector2.obj
-d:\projects\cpp\pong\debug\framework.lib
 d:\repositories\git\framework\debug\framework.lib
 d:\repositories\git\framework\framework\debug\framework.tlog\cl.command.1.tlog
 d:\repositories\git\framework\framework\debug\framework.tlog\cl.read.1.tlog

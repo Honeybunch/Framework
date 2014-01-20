@@ -10,6 +10,7 @@ public:
 
 	void add(Vector2* toAdd);
 	void mult(float scalar);
+	void div(float scalar);
 
 	~Vector2(void);
 };
