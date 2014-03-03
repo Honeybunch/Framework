@@ -74,16 +74,17 @@ void Pong::render(float interpolation)
 	//Render things
 	ball->draw(interpolation);
 
-	//kanoonoo->draw(interpolation);
+	kanoonoo->draw(interpolation);
 
 	//Count and display FPS
 	frames++;
 	elapsedTime = Game::getTimeMillis() - startTime;
 
-	framesPerSecond = float(frames) / float(elapsedTime / 1000);
+	framesPerSecond = float(frames) / float(elapsedTime / 1000.0f);
 
 	//Report FPS
-	//cout << "FPS: " << framesPerSecond;
+	cout << "FPS: " << framesPerSecond << endl;
+	//std::cout << interpolation << std::endl;
 
 	//Clear the console 
 	//windows only

@@ -73,8 +73,8 @@ void Ellip::initVerticies()
 	rotation.m[3][0] = 0.0f; rotation.m[3][1] = 0.0f; rotation.m[3][2] = 0.0f; rotation.m[3][3] = 1.0f;
 
 	//Transformation matrix
-	transformation.m[0][0] = 1.0f; transformation.m[0][1] = 0.0f; transformation.m[0][2] = 0.0f; transformation.m[0][3] = position->x / Game::SCREEN_WIDTH;
-	transformation.m[1][0] = 0.0f; transformation.m[1][1] = 1.0f; transformation.m[1][2] = 0.0f; transformation.m[1][3] = position->y / Game::SCREEN_HEIGHT;
+	transformation.m[0][0] = 1.0f; transformation.m[0][1] = 0.0f; transformation.m[0][2] = 0.0f; transformation.m[0][3] = position->x / Game::SCREEN_WIDTH /2;
+	transformation.m[1][0] = 0.0f; transformation.m[1][1] = 1.0f; transformation.m[1][2] = 0.0f; transformation.m[1][3] = position->y / Game::SCREEN_HEIGHT / 2;
 	transformation.m[2][0] = 0.0f; transformation.m[2][1] = 0.0f; transformation.m[2][2] = 1.0f; transformation.m[2][3] = 0.0f;
 	transformation.m[3][0] = 0.0f; transformation.m[3][1] = 0.0f; transformation.m[3][2] = 0.0f; transformation.m[3][3] = 1.0f;
 
@@ -143,12 +143,14 @@ void Ellip::draw(float interpolation)
 	glUseProgram(program);
 
 	//Modify transformation matrices
-	translate(new Vector2(glPosition->x + (glVelocity->x * interpolation),
-		glPosition->y + (glVelocity->y * interpolation)));
+	Vector2* newPos = new Vector2(glPosition->x + (glVelocity->x * interpolation),
+		glPosition->y + (glVelocity->y * interpolation));
+	translate(newPos);
+	delete newPos;
 
-	glUniformMatrix4fv(gScalingLocation, 1, GL_TRUE, &scaling.m[0][0]);
-	glUniformMatrix4fv(gRotationLocation, 1, GL_TRUE, &rotation.m[0][0]);
-	glUniformMatrix4fv(gTransformationLocation, 1, GL_TRUE, &transformation.m[0][0]);
+	//glUniformMatrix4fv(gScalingLocation, 1, GL_TRUE, &scaling.m[0][0]);
+	//glUniformMatrix4fv(gRotationLocation, 1, GL_TRUE, &rotation.m[0][0]);
+	//glUniformMatrix4fv(gTransformationLocation, 1, GL_TRUE, &transformation.m[0][0]);
 
 	//Render
 	glDrawArrays(GL_TRIANGLES, 0, 60); //Draw verticies
