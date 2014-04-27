@@ -63,6 +63,7 @@ protected:
 	GLuint gScalingLocation;
 	GLuint gRotationLocation;
 	GLuint gTransformationLocation;
+	GLuint gColorLocation;
 
 	GLuint vboID[1]; //The IDs for the vertex buffer objects
 	GLuint vaoID; //The ID for the vertex array object

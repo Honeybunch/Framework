@@ -20,10 +20,7 @@ public:
 
 protected:
 	float width, height;
-	Color* color;
-
-	//GLSL Locations
-	GLuint gColorLocation;
+	Color* color;	
 };
 
 #endif

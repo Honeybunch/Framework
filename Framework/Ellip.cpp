@@ -143,14 +143,21 @@ void Ellip::draw(float interpolation)
 	glUseProgram(program);
 
 	//Modify transformation matrices
-	Vector2* newPos = new Vector2(glPosition->x + (glVelocity->x * interpolation),
-		glPosition->y + (glVelocity->y * interpolation));
+	Vector2* newPos = new Vector2(position->x + (velocity->x * interpolation),
+		position->y + (velocity->y * interpolation));
+
+	//Update new position to GL coordinates
+	newPos->x = (float)(newPos->x / (Game::SCREEN_WIDTH) * 2);
+	newPos->y = (float)(-newPos->y / (Game::SCREEN_HEIGHT) * 2);
+
+	std::cout << newPos->x << " : " << newPos->y << std::endl;
+
 	translate(newPos);
 	delete newPos;
 
 	//glUniformMatrix4fv(gScalingLocation, 1, GL_TRUE, &scaling.m[0][0]);
 	//glUniformMatrix4fv(gRotationLocation, 1, GL_TRUE, &rotation.m[0][0]);
-	//glUniformMatrix4fv(gTransformationLocation, 1, GL_TRUE, &transformation.m[0][0]);
+	glUniformMatrix4fv(gTransformationLocation, 1, GL_TRUE, &transformation.m[0][0]);
 
 	//Render
 	glDrawArrays(GL_TRIANGLES, 0, 60); //Draw verticies

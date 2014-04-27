@@ -127,17 +127,10 @@ GameObject::~GameObject(void)
 	delete position;
 }
 
-//Use this update function to make sure that the glunit position, etc are correct
+//Not used yet
 void GameObject::update()
 {
-	glPosition->x = position->x / (Game::SCREEN_WIDTH / 2.0f);
-	glPosition->y = -position->y / (Game::SCREEN_HEIGHT / 2.0f);
 
-	glVelocity->x = velocity->x / (Game::SCREEN_HEIGHT / 2.0f);
-	glVelocity->y = -velocity->y / (Game::SCREEN_HEIGHT / 2.0f);
-
-	glAcceleration->x = acceleration->x / (Game::SCREEN_HEIGHT / 2.0f);
-	glAcceleration->y = -acceleration->y / (Game::SCREEN_HEIGHT / 2.0f);
 }
 
 //We have no standard draw procedures yet

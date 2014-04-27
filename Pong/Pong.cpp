@@ -18,7 +18,6 @@ Pong::Pong(int screenWidth, int screenHeight) : Game(screenWidth, screenHeight)
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
 	//Setup some FPS variables
-	startTime = Game::getTimeMillis();
 	frames = 1;
 
 	//Run the main game loop!
@@ -83,7 +82,7 @@ void Pong::render(float interpolation)
 	framesPerSecond = float(frames) / float(elapsedTime / 1000.0f);
 
 	//Report FPS
-	cout << "FPS: " << framesPerSecond << endl;
+	//cout << "FPS: " << framesPerSecond << endl;
 	//std::cout << interpolation << std::endl;
 
 	//Clear the console 

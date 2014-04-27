@@ -57,6 +57,7 @@ public:
 	void run();
 
 private:
+	int ticks;
 	bool init();
 	bool initGL();
 };

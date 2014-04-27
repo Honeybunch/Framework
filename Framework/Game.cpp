@@ -46,6 +46,7 @@ Game::Game(int screenWidth, int screenHeight)
 	screenSurface= NULL;
 
 	errorCode = 0;
+	ticks = 0;
 
 	//Initialize SDL; if it fails stop and set an error code
 	if(!init())
@@ -73,6 +74,7 @@ bool Game::init()
 	}
 
 	//Create the window and renderer
+	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 	SDL_CreateWindowAndRenderer(SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL, &window, &renderer);
 	SDL_GetRendererInfo(renderer, &rendererInfo);
 
@@ -148,17 +150,19 @@ bool Game::initGL()
 void Game::run()
 {
 	//Setup some timing structures
-	int TICKS_PER_SECOND = 25;
-	int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
-	int MAX_FRAMESKIP = 5;
+	float TICKS_PER_SECOND = 25;
+	float SKIP_TICKS = 1000/ TICKS_PER_SECOND;
+	float MAX_FRAMESKIP = 5;
 
-	int nextGameTick = getTimeMillis();
+	int nextGameTick = ticks;
 
 	int loops = 0;
 	float interpolation;
 
 	while (running)
 	{
+
+		ticks++;
 
 		while (SDL_PollEvent(&keyEvent))
 		{
@@ -172,7 +176,7 @@ void Game::run()
 
 		//Update the logic 25 times a second
 		loops = 0;
-		while (getTimeMillis() > nextGameTick && loops < MAX_FRAMESKIP)
+		while (ticks > nextGameTick && loops < MAX_FRAMESKIP)
 		{
 			update();
 
@@ -181,7 +185,10 @@ void Game::run()
 		}
 
 		//Calculate interpolation
-		interpolation = float(getTimeMillis() + SKIP_TICKS - nextGameTick) / float(SKIP_TICKS);
+		cout << "time: "<< ticks << endl;
+		cout << "skip ticks: " << SKIP_TICKS << endl;
+		cout << "next game tick: " << nextGameTick << endl;
+		interpolation = (float)(((float)ticks + SKIP_TICKS - nextGameTick) / (float)(SKIP_TICKS));
 
 		render(interpolation);
 	}
